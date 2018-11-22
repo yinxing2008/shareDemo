@@ -1,6 +1,6 @@
 # shareDemo
 **用途：**  
-1）通过友盟集成微信、qq分享样例  
+1）通过友盟集成微信、qq分享样例，简化了友盟API的设计。  
 2）支持对不同分享方式定制分享内容，详见CustShareTool  
 3）支持完全定制分享面板，详见ShareToolWithCustPanel  
 **调用方法：**
