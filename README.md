@@ -40,6 +40,6 @@ new ShareToolWithCustPanel().activity(MainActivity.this)
                         .openShareWin();
 ```
 
- **效果图：**
+ **效果图：**  
 ![enter description here](https://github.com/cxyzy1/shareDemo/raw/master/screenshot/20181122193333.png)
 ![enter description here](https://github.com/cxyzy1/shareDemo/raw/master/screenshot/20181122193342.png)
