@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,13 +8,41 @@
     tools:layout_editor_absoluteY="81dp">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_common"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="204dp"
-        android:text="分享"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginStart="112dp"
+        android:layout_marginLeft="112dp"
+        android:layout_marginTop="72dp"
+        android:text="普通分享"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/btn_diff_content"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="不同渠道分享不同标题"
+        app:layout_constraintStart_toStartOf="@+id/btn_common"
+        app:layout_constraintTop_toBottomOf="@+id/btn_common" />
+
+    <Button
+        android:id="@+id/btn_cust_panel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="定制分享面板"
+        app:layout_constraintStart_toStartOf="@+id/btn_diff_content"
+        app:layout_constraintTop_toBottomOf="@+id/btn_diff_content" />
+
+    <Button
+        android:id="@+id/shareToWeixin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="直接分享到微信"
+        app:layout_constraintStart_toStartOf="@+id/btn_cust_panel"
+        app:layout_constraintTop_toBottomOf="@+id/btn_cust_panel" />
+
+</android.support.constraint.ConstraintLayout>

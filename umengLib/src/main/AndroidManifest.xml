@@ -3,7 +3,7 @@
 
     <application>
         <activity
-            android:name="com.umeng.libs.wxapi.WXEntryActivity"
+            android:name=".share.wxapi.WXEntryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
             android:screenOrientation="portrait"

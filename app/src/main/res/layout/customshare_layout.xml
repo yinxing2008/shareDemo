@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/tv_share_panel_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="选择要分享到的平台"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_weixin"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_share_panel_title"
+        app:srcCompat="@mipmap/weixin" />
+
+    <ImageView
+        android:id="@+id/iv_weixin_circle"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginLeft="65dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintStart_toEndOf="@+id/iv_weixin"
+        app:layout_constraintTop_toBottomOf="@+id/tv_share_panel_title"
+        app:srcCompat="@mipmap/weixin_circle" />
+
+    <ImageView
+        android:id="@+id/iv_qq"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginRight="45dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_share_panel_title"
+        app:srcCompat="@mipmap/qq" />
+
+    <TextView
+        android:id="@+id/tv_weixin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="12dp"
+        android:text="微信好友"
+        android:textColor="#666666"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_weixin" />
+
+    <TextView
+        android:id="@+id/tv_weixin_circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="58dp"
+        android:layout_marginLeft="58dp"
+        android:text="微信朋友圈"
+        android:textColor="#666666"
+        android:textSize="13sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_weixin"
+        app:layout_constraintStart_toEndOf="@+id/tv_weixin" />
+
+    <TextView
+        android:id="@+id/tv_qq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="47dp"
+        android:layout_marginRight="47dp"
+        android:text="QQ好友"
+        android:textColor="#666666"
+        android:textSize="13sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_weixin_circle"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/btn_cancel"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="16dp"
+        android:background="#E9E9E9"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="取消"
+        android:textColor="#5B5B5B"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_weixin_circle" />
+
+    <LinearLayout
+        android:id="@+id/weixin_touch_layout"
+        android:layout_width="110dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_share_panel_title"></LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/weixin_circle_touch_layout"
+        android:layout_width="110dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toEndOf="@+id/weixin_touch_layout"
+        app:layout_constraintTop_toBottomOf="@+id/tv_share_panel_title"></LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/qq_touch_layout"
+        android:layout_width="110dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toEndOf="@+id/weixin_circle_touch_layout"
+        app:layout_constraintTop_toBottomOf="@+id/tv_share_panel_title"></LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
