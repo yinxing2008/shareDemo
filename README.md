@@ -1,8 +1,8 @@
 # shareDemo
-**用途：**
-1）通过友盟集成微信、qq分享样例
-2）支持对不同分享方式定制分享内容，详见CustShareTool
-3）支持完全定制分享面板，详见ShareToolWithCustPanel
+**用途：** 
+1）通过友盟集成微信、qq分享样例 
+2）支持对不同分享方式定制分享内容，详见CustShareTool 
+3）支持完全定制分享面板，详见ShareToolWithCustPanel 
 **调用方法：**
 1. 添加依赖包
 - 项目根目录下build.gradle的allprojects->repositories下增加`maven { url 'https://jitpack.io' }`
