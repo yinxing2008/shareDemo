@@ -223,7 +223,7 @@ public class ShareTool {
 
     /**
      * 设置完成分享后的回调
-     *
+     * 目前仅调用shareTo的场景会使用到该callback。
      * @return
      */
     public ShareTool callback(@NonNull Callback callback) {
@@ -259,6 +259,10 @@ public class ShareTool {
     }
 
     public interface Callback {
+        /**
+         * 分享按钮被点击时调用，如点击了分享面板上QQ、微信的图标
+         * @param shareType
+         */
         void onShared(String shareType);
     }
 }
