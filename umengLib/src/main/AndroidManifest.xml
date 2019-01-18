@@ -22,14 +22,14 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <!--tencent qq app id, to be modified.-->
-                <data android:scheme="tencent100424468" />
+                <data android:scheme="@string/tencent_qq_app_id" />
             </intent-filter>
         </activity>
 
         <!--umeng key, to be modified.-->
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="5b5178008f4a9d17f40000b5"></meta-data>
+            android:value="@string/umeng_key"/>
 
     </application>
 

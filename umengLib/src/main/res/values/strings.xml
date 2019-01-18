@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">umengLib</string>
+
+    <string name="tencent_qq_app_id">tencent100424468</string>
+    <string name="qq_app_id">100424468</string>
+    <string name="qq_app_key">c7394704798a158208a74ab60104f0ba</string>
+    <string name="umeng_key">5b5178008f4a9d17f40000b5</string>
+    <string name="weixin_app_id">wxdc1e388c3822c80b</string>
+    <string name="weixin_app_signature">3baf1193c85774b3fd9d18447d76cab0</string>
+
+
 </resources>
