@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import android.widget.Toast;
 
 import com.umeng.commonsdk.UMConfigure;
 import com.umeng.libs.share.config.ShareConfig;
@@ -36,12 +37,42 @@ public class ShareTool {
      * 使用setShareboardclickCallback() 可以进行分享面板不同按钮的点击回调
      */
     public void openShareWin() {
+        if (!isShareInfoValid()) {
+            return;
+        }
         ShareAction shareAction = new ShareAction(mActivity);
         ShareBoardlistener shareBoardlistener = new ShareBoardListenerImpl(shareAction);
         //TODO: 使用addButton函数代替setDisplayList，这样就可以完整通过ShareType和config目录下进行扩展
         shareAction.setDisplayList(SHARE_MEDIA.WEIXIN_CIRCLE, SHARE_MEDIA.WEIXIN, SHARE_MEDIA.QQ)
                 .setShareboardclickCallback(shareBoardlistener);
         showShareWindow(mIsWithIconBG, shareAction);
+    }
+
+    /**
+     * 直接调用对应平台分享，适用于定制分享面板和无分享面板场景
+     */
+    public void shareTo(String shareType) {
+        if (!isShareInfoValid()) {
+            return;
+        }
+        UMWeb umWeb = convert(mShareInfo, mActivity);
+        new ShareAction(mActivity)
+                .setPlatform(ShareTypeMapping.getShareMedia(shareType))
+                .withMedia(umWeb)
+                .setCallback(new CustomShareListener(mActivity))
+                .share();
+        if (mCallback != null) {
+            mCallback.onShared(shareType);
+        }
+    }
+
+    private boolean isShareInfoValid() {
+        boolean result = true;
+        if (TextUtils.isEmpty(mShareInfo.url)) {
+            result = false;
+            Toast.makeText(mActivity, mActivity.getString(R.string.empty_url_notice), Toast.LENGTH_LONG).show();
+        }
+        return result;
     }
 
     private class ShareBoardListenerImpl implements ShareBoardlistener {
@@ -56,11 +87,7 @@ public class ShareTool {
          */
         @Override
         public void onclick(SnsPlatform snsPlatform, SHARE_MEDIA shareMedia) {
-            UMWeb umWeb;
-            umWeb = new UMWeb(mShareInfo.url);
-            umWeb.setTitle(mShareInfo.title);
-            umWeb.setDescription(mShareInfo.description);
-            umWeb.setThumb(new UMImage(mActivity, mShareInfo.thumbUrl));
+            UMWeb umWeb = convert(mShareInfo, mActivity);
 
             ShareInfo shareInfo = getShareInfo(ShareTypeMapping.getShareType(shareMedia));
             if (shareInfo != null) {
@@ -80,9 +107,16 @@ public class ShareTool {
     protected UMWeb convert(ShareInfo shareInfo, Activity activity) {
         UMWeb umWeb;
         umWeb = new UMWeb(shareInfo.url);
-        umWeb.setTitle(shareInfo.title);
-        umWeb.setDescription(shareInfo.description);
-        umWeb.setThumb(new UMImage(activity, shareInfo.thumbUrl));
+        if (!TextUtils.isEmpty(shareInfo.title)) {
+            umWeb.setTitle(shareInfo.title);
+        }
+        if (!TextUtils.isEmpty(shareInfo.description)) {
+            umWeb.setTitle(shareInfo.description);
+        }
+        if (!TextUtils.isEmpty(shareInfo.thumbUrl)) {
+            umWeb.setThumb(new UMImage(activity, shareInfo.thumbUrl));
+        }
+
         return umWeb;
     }
 
@@ -224,6 +258,7 @@ public class ShareTool {
     /**
      * 设置完成分享后的回调
      * 目前仅调用shareTo的场景会使用到该callback。
+     *
      * @return
      */
     public ShareTool callback(@NonNull Callback callback) {
@@ -239,21 +274,6 @@ public class ShareTool {
         return this;
     }
 
-    /**
-     * 直接调用对应平台分享，适用于定制分享面板和无分享面板场景
-     */
-    public void shareTo(String shareType) {
-        UMWeb umWeb = convert(mShareInfo, mActivity);
-        new ShareAction(mActivity)
-                .setPlatform(ShareTypeMapping.getShareMedia(shareType))
-                .withMedia(umWeb)
-                .setCallback(new CustomShareListener(mActivity))
-                .share();
-        if (mCallback != null) {
-            mCallback.onShared(shareType);
-        }
-    }
-
     public static void addPlatformConfig(String shareType, ShareConfig shareConfig) {
         ShareTypeMapping.addConfig(shareType, shareConfig);
     }
@@ -261,6 +281,7 @@ public class ShareTool {
     public interface Callback {
         /**
          * 分享按钮被点击时调用，如点击了分享面板上QQ、微信的图标
+         *
          * @param shareType
          */
         void onShared(String shareType);

@@ -7,6 +7,7 @@
     <string name="umeng_key">5b5178008f4a9d17f40000b5</string>
     <string name="weixin_app_id">wxdc1e388c3822c80b</string>
     <string name="weixin_app_signature">3baf1193c85774b3fd9d18447d76cab0</string>
+    <string name="empty_url_notice">分享链接为空,无法完成分享</string>
 
 
 </resources>
