@@ -278,7 +278,6 @@ public class ShareTool {
         ShareTypeMapping.addConfig(shareType, shareConfig);
     }
 
-
     public interface Callback {
         /**
          * 分享按钮被点击时调用，如点击了分享面板上QQ、微信的图标
