@@ -111,7 +111,7 @@ public class ShareTool {
             umWeb.setTitle(shareInfo.title);
         }
         if (!TextUtils.isEmpty(shareInfo.description)) {
-            umWeb.setTitle(shareInfo.description);
+            umWeb.setDescription(shareInfo.description);
         }
         if (!TextUtils.isEmpty(shareInfo.thumbUrl)) {
             umWeb.setThumb(new UMImage(activity, shareInfo.thumbUrl));
